@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Hexagon.cs">
+    <Files>
+      <File FileName="Assets/GoogleVR/Scripts/UI/GvrReticle.cs" Line="228" Column="53" />
+      <File FileName="Assets/GoogleVR/DemoScenes/HeadsetDemo/Teleport.cs" Line="70" Column="4" />
+      <File FileName="Assets/Resources/Scripts/GazeResponder.cs" Line="35" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Hexagon.cs" Line="3" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
