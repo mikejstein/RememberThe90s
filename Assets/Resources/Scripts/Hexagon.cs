@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
+
 
 
 public enum ColorStates {
@@ -11,17 +12,39 @@ public enum ColorStates {
 
 
 public class Hexagon : MonoBehaviour {
-	private GameObject[] insideCubes;
-	// Use this for initialization
-	void Start () {
+    private List<GameObject> insideCubes = new List<GameObject>();
+    // Use this for initialization
+
+    void Start () {
+
+        //Subscribe to the gaze delegate
+        GazeResponder gr = gameObject.GetComponent<GazeResponder>();
+        gr.gazeChanged += Gr_gazeChanged;
+
 		//First, get children
-		Transform[] huh = gameObject.GetComponentsInChildren<Transform>();
-		Debug.Log(huh.Length);
-		//insideCubes = insideCubes.Where(child => child.tag == "InsideHex").ToArray;
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("InsideHex"))
+            {
+                insideCubes.Add(child.gameObject);
+            }
+                
+        }
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Gr_gazeChanged(bool status)
+    {
+        
+        foreach(GameObject inside in insideCubes)
+        {
+            inside.GetComponent<Renderer>().material.color = status ? Color.green : Color.blue;
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update () {
 	}	
+
 
 }

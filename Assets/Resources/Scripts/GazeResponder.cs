@@ -17,7 +17,9 @@ using System.Collections;
 
 [RequireComponent(typeof(Collider))]
 public class GazeResponder : MonoBehaviour, IGvrGazeResponder {
-	private Vector3 startingPosition;
+    public delegate void GazeChanged(bool status);
+    public event GazeChanged gazeChanged;
+    private Vector3 startingPosition;
 
 	void Start() {
 		startingPosition = transform.localPosition;
@@ -32,8 +34,8 @@ public class GazeResponder : MonoBehaviour, IGvrGazeResponder {
 	}
 
 	public void SetGazedAt(bool gazedAt) {
-		Debug.Log("FUCKING GAZED AT");
-		//GetComponent<Renderer>().material.color = gazedAt ? Color.green : Color.white;
+        // Tell it's owner that you been gazed at, biatch.
+        gazeChanged(gazedAt);
 	}
 
 
